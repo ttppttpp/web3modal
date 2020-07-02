@@ -10,6 +10,7 @@ import burnerconnect from "./burnerconnect";
 import unilogin from "./unilogin";
 import mewconnect from "./mewconnect"
 import dcentwallet from "./dcentwallet";
+import imkey from "./imkey";
 
 export {
   injected,
@@ -23,5 +24,6 @@ export {
   burnerconnect,
   unilogin,
   mewconnect,
-  dcentwallet
+  dcentwallet,
+  imkey
 };

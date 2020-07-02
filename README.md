@@ -437,6 +437,29 @@ const providerOptions = {
   }
 };
 ```
+### imKey
+
+1. Install ImKey Package
+
+```bash
+npm install --save imkey-web3-provider
+# OR
+yarn add imkey-web3-provider
+```
+
+2. Set Provider Options
+
+```typescript
+import ImKeyProvider from "imkey-web3-provider";
+const providerOptions = {
+  firebox: {
+    package: ImKeyProvider, // required
+    options: {
+      
+    }
+  }
+};
+```
 
 ## API
 
