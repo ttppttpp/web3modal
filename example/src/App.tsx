@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Web3 from "web3";
 import { convertUtf8ToHex } from "@walletconnect/utils";
-
+// @ts-ignore
 import Web3Modal from "web3modal";
 // @ts-ignore
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -11,6 +11,7 @@ import Fortmatic from "fortmatic";
 import Torus from "@toruslabs/torus-embed";
 import Authereum from "authereum";
 import UniLogin from "@unilogin/provider";
+import ImKeyProvider from "imkey-web3-provider";
 
 import Button from "./components/Button";
 import Column from "./components/Column";
@@ -185,7 +186,7 @@ class App extends React.Component<any, any> {
 
     const web3: any = initWeb3(provider);
 
-    const accounts = await web3.eth.getAccounts();
+    const accounts = await web3.eth.requestAccounts();
 
     const address = accounts[0];
 
@@ -252,6 +253,9 @@ class App extends React.Component<any, any> {
       },
       unilogin: {
         package: UniLogin
+      },
+      imkey: {
+        package: ImKeyProvider
       }
     };
     return providerOptions;

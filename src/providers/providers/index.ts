@@ -20,6 +20,8 @@ import UniLoginLogo from "../logos/unilogin.svg";
 import MEWwallet from "../logos/mewwallet.png";
 // @ts-ignore
 import DcentWalletLogo from "../logos/dcentwallet.png";
+// @ts-ignore
+import ImKeyLogo from "../logos/imkey.svg";
 
 import { IProviderInfo } from "../../helpers";
 
@@ -132,4 +134,12 @@ export const DCENT: IProviderInfo = {
   package: {
     required: ["rpcUrl"]
   }
+};
+
+export const IMKEY: IProviderInfo = {
+  id: "imkey",
+  name: "imKey",
+  logo: ImKeyLogo,
+  type: "hardware",
+  check: "isImKey",
 };
