@@ -1,12 +1,16 @@
+import { IAbstractConnectorOptions } from "../../helpers";
 
-
+export interface IImkeyConnectorOptions extends IAbstractConnectorOptions {
+  rpcUrl: string;
+}
 
 const ConnectToImKey = async (
-    ImKeyProvider: any
+    ImKeyProvider: any,
+    opts:IImkeyConnectorOptions
 ) => {
     try {
-        const provider = new ImKeyProvider();
-        // await provider.enable();
+        const provider = new ImKeyProvider(opts.rpcUrl);
+        await provider.enable();
         console.log("create imkey provider");
         return provider;
     } catch (e) {

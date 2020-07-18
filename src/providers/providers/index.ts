@@ -142,4 +142,7 @@ export const IMKEY: IProviderInfo = {
   logo: ImKeyLogo,
   type: "hardware",
   check: "isImKey",
+  package: {
+    required: ["rpcUrl"]
+  }
 };
