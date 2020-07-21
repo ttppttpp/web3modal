@@ -166,8 +166,6 @@ class App extends React.Component<any, any> {
       ...INITIAL_STATE
     };
 
-    
-    console.log("options", this.getProviderOptions());
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
       cacheProvider: true,
@@ -197,6 +195,25 @@ class App extends React.Component<any, any> {
 
     const chainId = await web3.eth.chainId();
 
+    // await this.getAccountAssets();
+
+    web3.eth.requestAccounts()
+      .then(console.log);
+
+    web3.eth.signTransaction({
+      from: "0x6031564e7b2F5cc33737807b2E58DaFF870B590b",
+      gasPrice: "20000000008",
+      nonce: 8,
+      gas: "21000",
+      to: '0x3535353535353535353535353535353535353535',
+      value: "512",
+      chainId: 28,
+      data: ""
+    }).then(console.log).catch(console.log);
+
+    web3.eth.sign("Hello world", "0x6031564e7b2F5cc33737807b2E58DaFF870B590b")
+      .then(console.log);
+
     await this.setState({
       web3,
       provider,
@@ -205,7 +222,6 @@ class App extends React.Component<any, any> {
       chainId,
       networkId
     });
-    await this.getAccountAssets();
   };
 
   public subscribeProvider = async (provider: any) => {
@@ -229,6 +245,14 @@ class App extends React.Component<any, any> {
       const chainId = await web3.eth.chainId();
       await this.setState({ chainId, networkId });
       await this.getAccountAssets();
+    });
+    
+    provider.on("connect", async (networkId: number) => {
+      console.log("connect:", networkId);
+    });
+
+    provider.on("disconnect", async (networkId: number) => {
+      console.log("disconnect:",networkId);
     });
   };
 
