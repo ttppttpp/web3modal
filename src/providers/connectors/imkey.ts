@@ -11,7 +11,6 @@ const ConnectToImKey = async (
     try {
         const provider = new ImKeyProvider(opts);
         await provider.enable();
-        console.log("create imkey provider");
         return provider;
     } catch (e) {
         return e;
