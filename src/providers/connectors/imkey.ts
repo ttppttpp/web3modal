@@ -9,7 +9,7 @@ const ConnectToImKey = async (
     opts:IImkeyConnectorOptions
 ) => {
     try {
-        const provider = new ImKeyProvider(opts.rpcUrl);
+        const provider = new ImKeyProvider(opts);
         await provider.enable();
         console.log("create imkey provider");
         return provider;

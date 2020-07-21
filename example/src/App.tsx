@@ -166,6 +166,8 @@ class App extends React.Component<any, any> {
       ...INITIAL_STATE
     };
 
+    
+    console.log("options", this.getProviderOptions());
     this.web3Modal = new Web3Modal({
       network: this.getNetwork(),
       cacheProvider: true,
@@ -174,6 +176,7 @@ class App extends React.Component<any, any> {
   }
 
   public componentDidMount() {
+    this.web3Modal.clearCachedProvider();
     if (this.web3Modal.cachedProvider) {
       this.onConnect();
     }
@@ -255,7 +258,10 @@ class App extends React.Component<any, any> {
         package: UniLogin
       },
       imkey: {
-        package: ImKeyProvider
+        package: ImKeyProvider,
+        options: {
+          rpcUrl: "https://ropsten.infura.io/v3/819049aeadbe494c80bdb815cf41242e"
+        }
       }
     };
     return providerOptions;
