@@ -438,6 +438,30 @@ const providerOptions = {
 };
 ```
 
+### imKey
+
+1. Install Provider Package
+
+```bash
+npm install --save imkey-web3-provider
+# OR
+yarn add imkey-web3-provider
+```
+
+2. Set Provider Options
+
+```typescript
+import ImKeyProvider from "imkey-web3-provider";
+const providerOptions = {
+  imkey: {
+    package: ImKeyProvider, // required
+    options: {
+      rpcUrl: "INSERT_RPC_URL" // required
+    }
+  }
+};
+```
+
 ## API
 
 ```typescript
